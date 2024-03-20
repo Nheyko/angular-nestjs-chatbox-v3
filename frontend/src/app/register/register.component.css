@@ -1,0 +1,3 @@
+.validation-error-border {
+    @apply border-red-500 focus:border-red-500 focus:outline-none !important; /* Use !important for overriding */
+  }

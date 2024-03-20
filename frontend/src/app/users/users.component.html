@@ -1,0 +1,8 @@
+<div *ngIf="(users$ | async) as users">
+    <div *ngFor="let user of users">
+        <p>User id : {{user.id}}</p>
+        <p>Username : {{user.username}}</p>
+        <p>User rôle : {{user.role_id}}</p>
+        <br/>
+    </div>
+</div>

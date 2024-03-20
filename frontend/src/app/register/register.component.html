@@ -1,0 +1,65 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="p-10">
+        <h1 class="font-bold">Please sign up</h1>
+        <div class="p-5 flex flex-col w-60">
+            <label for="username">Username :</label>
+            <input class="focus:border-teal-500 focus:outline-none border border-black pl-1"
+            type="text"
+            formControlName="username"
+            placeholder="Name"
+            name="username"
+            id="username"
+            autocomplete="off"
+            required>
+        </div>
+        <div class="pb-5 px-5 flex flex-col w-60">
+            <label for="email">Email :</label>
+            <input class="focus:border-teal-500 focus:outline-none border border-black pl-1"
+            type="email"
+            formControlName="email"
+            placeholder="Email"
+            name="email"
+            id="email"
+            autocomplete="off"
+            required>
+        </div>
+        <div class="pb-5 px-5 flex flex-col w-60">
+            <label for="confirmEmail">Confirm Email :</label>
+            <input class=" focus:border-teal-500 focus:outline-none border {{ form.get('email').value !== form.get('confirmEmail').value && form.get('confirmEmail').dirty ? 'validation-error-border' : 'border-black' }} pl-1"
+            type="email"
+            formControlName="confirmEmail"
+            placeholder="Email"
+            name="confirmEmail"
+            id="confirmEmail"
+            autocomplete="off"
+            required>
+            <div *ngIf="form.get('email').value !== form.get('confirmEmail').value && form.get('confirmEmail').dirty" class="text-red-500">Email not corresponding</div>
+        </div>
+        <div class="pb-5 px-5 flex flex-col w-60">
+            <label for="password">Password :</label>
+            <input class="focus:border-teal-500 focus:outline-none border border-black pl-1"
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+            name="password"
+            id="password"
+            autocomplete="off"
+            required>
+        </div>
+        <div class="pb-5 px-5 flex flex-col w-60">
+            <label for="confirmPassword">Confirm Password :</label>
+            <input class="focus:border-teal-500 focus:outline-none border {{ form.get('password').value !== form.get('confirmPassword').value && form.get('confirmPassword').dirty ? 'validation-error-border ' : 'border-black' }} pl-1"
+            type="password"
+            formControlName="confirmPassword"
+            placeholder="Password"
+            name="confirmPassword"
+            id="confirmPassword"
+            autocomplete="off"
+            required>
+            <div *ngIf="form.get('password').value !== form.get('confirmPassword').value && form.get('confirmPassword').dirty" class="text-red-500">Password not corresponding</div>
+        </div>
+        <div>
+            <button class="border border-black p-1" type="submit">Register</button>
+        </div>
+    </div>
+  </form>
