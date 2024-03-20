@@ -50,6 +50,6 @@ export class AuthService {
   }
 
   public logout() {
-    return this.http.post('http://localhost:3000/auth/logout', {}, {withCredentials: true});
+    return this.http.post('http://localhost:3000/auth/logout', {});
   }
 }
